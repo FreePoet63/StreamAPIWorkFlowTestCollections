@@ -7,6 +7,7 @@ import io.qameta.atlas.webdriver.WebPage;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
@@ -24,13 +25,13 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class StreamAPIObitelTest {
 
-    FirefoxDriver driver;
+    EdgeDriver driver;
     Atlas atlas;
 
     @BeforeClass
     public void startFirefoxDriver() {
-        WebDriverManager.firefoxdriver().setup();
-        driver = new FirefoxDriver();
+        WebDriverManager.edgedriver().setup();
+        driver = new EdgeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         atlas = new Atlas(new WebDriverConfiguration(driver));
