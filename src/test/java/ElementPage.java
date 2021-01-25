@@ -1,3 +1,4 @@
+import io.qameta.atlas.core.api.Retry;
 import io.qameta.atlas.webdriver.AtlasWebElement;
 import io.qameta.atlas.webdriver.WebPage;
 import io.qameta.atlas.webdriver.extension.FindBy;
@@ -9,6 +10,7 @@ public interface ElementPage extends WebPage {
     @FindBy("//span[contains(text(), '{{ text }}')]")
     AtlasWebElement eleObitel (@Param("text") String text);
 
+    @SuppressWarnings("rawtypes")
     @FindBy("//a[contains(text(), '{{ text }}')]")
     AtlasWebElement elementObitel (@Param("text") String text);
 }

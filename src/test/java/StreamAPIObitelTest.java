@@ -1,4 +1,3 @@
-import com.google.common.collect.ImmutableList;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.*;
 import io.qameta.atlas.core.Atlas;
@@ -7,7 +6,6 @@ import io.qameta.atlas.webdriver.WebPage;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
@@ -25,15 +23,15 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class StreamAPIObitelTest {
 
-    EdgeDriver driver;
+    FirefoxDriver driver;
     Atlas atlas;
 
     @BeforeClass
     public void startFirefoxDriver() {
-        WebDriverManager.edgedriver().setup();
-        driver = new EdgeDriver();
+        WebDriverManager.firefoxdriver().setup();
+        driver = new FirefoxDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
         atlas = new Atlas(new WebDriverConfiguration(driver));
         onPage(ElementPage.class).open("https://lavka-obitel.ru/");
     }
