@@ -1,6 +1,6 @@
 
 
-name: Java CI with Maven and Selenium
+name: Java CI with Maven and Selenium WebDriver
 
 on:
   push:
