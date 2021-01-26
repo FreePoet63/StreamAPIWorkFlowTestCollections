@@ -135,20 +135,18 @@ public class StreamAPIObitelTest {
     @Test
     @Description("Working with a collection using, StreamAPI")
     @Severity(SeverityLevel.NORMAL)
-    @Story("Workflow with collections 'Ceramics'")
-    public void setCeramics() throws InterruptedException {
-        Thread.sleep(8000);
-        WebElement eleCeramic = onPage(ElementPage.class).eleObitel("Керамика");
-        JavascriptExecutor executor = (JavascriptExecutor) driver;
-        executor.executeScript("arguments[0].click();", eleCeramic);
-        onPage(ElementPage.class).eleObitel("Керамическая посуда").click();
+    @Story("Workflow with collections 'Souvenir'")
+    public void setSouvenir() throws InterruptedException {
+        Thread.sleep(7000);
+        onPage(ElementPage.class).eleObitel("Сувениры").click();
+        onPage(ElementPage.class).eleObitel("Стеклосувениры").click();
         List<WebElement> dishesItem = onPage(AtlasElementCollections.class).prodCollection();
         List<String> dishesElement = dishesItem.stream().map(webElement -> webElement.getText()).sorted()
                 .collect(Collectors.toList());
         System.out.println(dishesElement);
-        assertThat(dishesElement, hasItems(containsString("Чайник \"Улыбка\""),containsString(
-                "Чашка \"Мечта\"")));
-        dishesElement.stream().filter(Objects::nonNull).filter(s -> !s.isEmpty() && s.contains("Чайник"))
+        assertThat(dishesElement, hasItems(containsString("Ангел-Серафим \"Тиффани\""),containsString(
+                "Витраж Ангел")));
+        dishesElement.stream().filter(Objects::nonNull).filter(s -> !s.isEmpty() && s.contains("Ангел"))
                 .forEach(System.out::println);
         screenshotPNG();
     }
