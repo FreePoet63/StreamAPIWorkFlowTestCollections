@@ -137,8 +137,10 @@ public class StreamAPIObitelTest {
     @Severity(SeverityLevel.NORMAL)
     @Story("Workflow with collections 'Ceramics'")
     public void setCeramics() throws InterruptedException {
-        Thread.sleep(7000);
-        onPage(ElementPage.class).eleObitel("Керамика").click();
+        Thread.sleep(5000);
+        WebElement eleCeramic = onPage(ElementPage.class).eleObitel("Керамика");
+        JavascriptExecutor executor = (JavascriptExecutor) driver;
+        executor.executeScript("arguments[0].click();", eleCeramic);
         onPage(ElementPage.class).eleObitel("Керамическая посуда").click();
         List<WebElement> dishesItem = onPage(AtlasElementCollections.class).prodCollection();
         List<String> dishesElement = dishesItem.stream().map(webElement -> webElement.getText()).sorted()
