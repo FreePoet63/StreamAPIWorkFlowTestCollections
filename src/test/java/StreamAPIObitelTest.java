@@ -3,9 +3,7 @@ import io.qameta.allure.*;
 import io.qameta.atlas.core.Atlas;
 import io.qameta.atlas.webdriver.WebDriverConfiguration;
 import io.qameta.atlas.webdriver.WebPage;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
@@ -31,7 +29,7 @@ public class StreamAPIObitelTest {
         WebDriverManager.firefoxdriver().setup();
         driver = new FirefoxDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         atlas = new Atlas(new WebDriverConfiguration(driver));
         onPage(ElementPage.class).open("https://lavka-obitel.ru/");
     }
@@ -140,7 +138,7 @@ public class StreamAPIObitelTest {
     @Severity(SeverityLevel.NORMAL)
     @Story("Workflow with collections 'Ceramics'")
     public void setCeramics() throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(7000);
         onPage(ElementPage.class).eleObitel("Керамика").click();
         onPage(ElementPage.class).eleObitel("Керамическая посуда").click();
         List<WebElement> dishesItem = onPage(AtlasElementCollections.class).prodCollection();
