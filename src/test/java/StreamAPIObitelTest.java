@@ -137,7 +137,7 @@ public class StreamAPIObitelTest {
     @Severity(SeverityLevel.NORMAL)
     @Story("Workflow with collections 'Ceramics'")
     public void setCeramics() throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(8000);
         WebElement eleCeramic = onPage(ElementPage.class).eleObitel("Керамика");
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", eleCeramic);
